@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexController = require('./controllers/index');
 var usersController = require('./controllers/users');
-var projectsController = require('./controllers/projects') // add reference to new controller
+var projectsController = require('./controllers/projects') // add.hbs reference to new controller
 
 var app = express();
 

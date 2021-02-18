@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f16537a1-2380-4197-aba3-b7bb425611b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/globals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/project.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/projects/add.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/projects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/project.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/project.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/projects/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/projects/index.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +49,7 @@
       <updated>1613068075283</updated>
       <workItem from="1613068076763" duration="4792000" />
       <workItem from="1613500203756" duration="76000" />
-      <workItem from="1613670843234" duration="2401000" />
+      <workItem from="1613670843234" duration="5725000" />
     </task>
     <servers />
   </component>
@@ -57,6 +57,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="416" y="150" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613675452192">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="416" y="150" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680/3840.0.1280.984@0.0.1280.680" timestamp="1613675452192" />
     <state x="422" y="98" key="FileChooserDialogImpl" timestamp="1613500278094">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
