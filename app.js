@@ -24,6 +24,22 @@ app.use('/', indexController);
 app.use('/users', usersController);
 app.use('/projects', projectsController)
 
+// mongodb connection
+const mongoose = require('mongoose')
+
+// global vars configuration file
+const config = require('./config/globals')
+
+mongoose.connect(config.db, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+    .then((res) => {
+      console.log('Connected to MongoDB')
+    }).catch(() => {
+      console.log('MongoDB Connection Failed')
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
