@@ -7,7 +7,7 @@
     </fieldset>
     <fieldset>
         <label for="dueDate" class="col-2">Due Date:</label>
-        <input name="dueDate" id="dueDate" required value="{{project.dueDate}}" />
+        <input name="dueDate" id="dueDate" required value="{{shortDate project.dueDate}}" />
     </fieldset>
     <fieldset>
         <label for="course" class="col-2">Course:</label>
@@ -20,9 +20,9 @@
     <fieldset>
         <label for="status" class="col-2">Status:</label>
         <select name="status" id="status">
-            {{createOption 'To-Do' ../project.status}}
-            {{createOption 'Doing' ../project.status}}
-            {{createOption 'Done' ../project.status}}
+            {{createOption 'To-Do' project.status}}
+            {{createOption 'Doing' project.status}}
+            {{createOption 'Done' project.status}}
         </select>
     </fieldset>
     <button class="offset-3 btn btn-primary">Save</button>

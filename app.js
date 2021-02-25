@@ -52,7 +52,12 @@ hbs.registerHelper('createOption', (currentValue, selectedValue) => {
         selectedProperty = ' selected'
     }
 
+    console.log(currentValue + '/' + selectedValue)
     return new hbs.SafeString('<option' + selectedProperty + '>' + currentValue + '</option>')
+})
+
+hbs.registerHelper('shortDate', (dateVal) => {
+    return new hbs.SafeString(dateVal.toLocaleDateString('en-US'))
 })
 
 // catch 404 and forward to error handler
