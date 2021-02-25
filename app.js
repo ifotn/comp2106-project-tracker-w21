@@ -42,6 +42,19 @@ mongoose.connect(config.db, {
       console.log('MongoDB Connection Failed')
 })
 
+// hbs helper function to pre-select correct dropdown option
+const hbs = require('hbs')
+
+hbs.registerHelper('createOption', (currentValue, selectedValue) => {
+    // if values match add 'selected' to this option tag
+    var selectedProperty = ''
+    if (currentValue == selectedValue) {
+        selectedProperty = ' selected'
+    }
+
+    return new hbs.SafeString('<option' + selectedProperty + '>' + currentValue + '</option>')
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

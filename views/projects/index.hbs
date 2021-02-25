@@ -10,7 +10,11 @@
         <th>Actions</th>
         {{#each projects}}
             <tr>
-                <td>{{this.name}}</td>
+                <td>
+                    <a href="/projects/edit/{{this._id}}">
+                        {{this.name}}
+                    </a>
+                </td>
                 <td>{{this.dueDate}}</td>
                 <td>{{this.course}}</td>
                 <td>{{this.status}}</td>

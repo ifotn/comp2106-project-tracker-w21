@@ -70,5 +70,46 @@ router.get('/delete/:_id', (req, res, next) => {
     })
 })
 
+/* GET /projects/edit/abc123 */
+router.get('/edit/:_id', (req, res, next) => {
+    Project.findById(req.params._id, (err, project) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            // get courses for dropdown
+            Course.find((err, courses) => {
+                if (err) {
+                    console.log(err)
+                }
+                else {
+                    res.render('projects/edit', {
+                        title: 'Project Details',
+                        project: project,
+                        courses: courses
+                    })
+                }
+            }).sort({ courseCode: 1} )
+        }
+    })
+})
+
+/* POST /projects/edit/abc123 */
+router.post('/edit/:_id', (req, res, next) => {
+    Project.findOneAndUpdate({ _id: req.params._id }, {
+        name: req.body.name,
+        dueDate: req.body.dueDate,
+        course: req.body.course,
+        status: req.body.status
+    }, (err, project) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            res.redirect('/projects')
+        }
+    })
+})
+
 // make public
 module.exports = router;
