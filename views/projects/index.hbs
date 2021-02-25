@@ -7,12 +7,19 @@
         <th>Due Date</th>
         <th>Course</th>
         <th>Status</th>
+        <th>Actions</th>
         {{#each projects}}
             <tr>
                 <td>{{this.name}}</td>
                 <td>{{this.dueDate}}</td>
                 <td>{{this.course}}</td>
                 <td>{{this.status}}</td>
+                <td>
+                    <a href="/projects/delete/{{this._id}}" class="btn btn-danger"
+                        onclick="return areYouSure();">
+                        Delete
+                    </a>
+                </td>
             </tr>
         {{/each}}
     </thead>
