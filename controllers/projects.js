@@ -9,6 +9,15 @@ const Course = require('../models/course')
 // add passport for auth checking
 const passport = require('passport')
 
+// auth check for access control to create/edit/delete methods
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) { // user is already authenticated
+        return next() // do the next thing in the request i.e. continue with the calling function
+    }
+
+    res.redirect('/login') // anonymous user tried to access a private method => go to login
+}
+
 /* GET /projects */
 router.get('/', (req, res, next) => {
     // use Project model to fetch all projects for display
@@ -28,8 +37,8 @@ router.get('/', (req, res, next) => {
     })
 })
 
-/* GET /projects/add */
-router.get('/add', (req, res, next) => {
+/* GET /projects/add - now made private using isLoggedIn function 3/18 */
+router.get('/add', isLoggedIn, (req, res, next) => {
     // use Course model to fetch list of courses for dropdown
     Course.find((err, courses) => {
         if (err) {
@@ -46,7 +55,7 @@ router.get('/add', (req, res, next) => {
 })
 
 /* POST /projects/add */
-router.post('/add', (req, res, next) => {
+router.post('/add', isLoggedIn, (req, res, next) => {
     // use the Project model to save the form data to MongoDB
     Project.create({
         name: req.body.name,
@@ -64,7 +73,7 @@ router.post('/add', (req, res, next) => {
 })
 
 /* GET /projects/delete/abc123 */
-router.get('/delete/:_id', (req, res, next) => {
+router.get('/delete/:_id', isLoggedIn, (req, res, next) => {
     // use the Project model to delete the selected document
     Project.remove({ _id: req.params._id }, (err) => {
         if (err) {
@@ -77,7 +86,7 @@ router.get('/delete/:_id', (req, res, next) => {
 })
 
 /* GET /projects/edit/abc123 */
-router.get('/edit/:_id', (req, res, next) => {
+router.get('/edit/:_id', isLoggedIn, (req, res, next) => {
     Project.findById(req.params._id, (err, project) => {
         if (err) {
             console.log(err)
@@ -102,7 +111,7 @@ router.get('/edit/:_id', (req, res, next) => {
 })
 
 /* POST /projects/edit/abc123 */
-router.post('/edit/:_id', (req, res, next) => {
+router.post('/edit/:_id', isLoggedIn, (req, res, next) => {
     Project.findOneAndUpdate({ _id: req.params._id }, {
         name: req.body.name,
         dueDate: req.body.dueDate,
