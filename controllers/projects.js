@@ -6,6 +6,9 @@ const router = express.Router()
 const Project = require('../models/project')
 const Course = require('../models/course')
 
+// add passport for auth checking
+const passport = require('passport')
+
 /* GET /projects */
 router.get('/', (req, res, next) => {
     // use Project model to fetch all projects for display
@@ -15,9 +18,11 @@ router.get('/', (req, res, next) => {
         }
         else {
             // load the index view, set the title, and pass the query resultset as "projects"
+            // now pass the current user (if any) to show in navbar
             res.render('projects/index', {
                 title: 'My Projects',
-                projects: projects
+                projects: projects,
+                user: req.user
             })
         }
     })
@@ -33,7 +38,8 @@ router.get('/add', (req, res, next) => {
         else {
             res.render('projects/add', {
                 title: 'Project Details',
-                courses: courses
+                courses: courses,
+                user: req.user
             })
         }
     }).sort({ courseCode: 1 })
@@ -86,7 +92,8 @@ router.get('/edit/:_id', (req, res, next) => {
                     res.render('projects/edit', {
                         title: 'Project Details',
                         project: project,
-                        courses: courses
+                        courses: courses,
+                        user: req.user
                     })
                 }
             }).sort({ courseCode: 1} )

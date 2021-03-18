@@ -5,9 +5,15 @@ const router = express.Router()
 // add course model for CRUD operations
 const Course = require('../models/course')
 
+// passport for auth
+const passport = require('passport')
+
 /* GET /courses/add */
 router.get('/add', (req, res, next) => {
-    res.render('courses/add', { title: 'Add a Course' })
+    res.render('courses/add', {
+        title: 'Add a Course',
+        user: req.user
+    })
 })
 
 /* POST /courses/add */

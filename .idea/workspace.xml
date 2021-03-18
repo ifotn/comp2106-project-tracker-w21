@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f16537a1-2380-4197-aba3-b7bb425611b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/login.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/register.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/courses.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/projects.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +35,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/eval/2106/Project-Tracker-main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../projectTrackerTest" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="SvnConfiguration">
@@ -54,7 +54,9 @@
       <workItem from="1614199201441" duration="958000" />
       <workItem from="1614273248885" duration="7756000" />
       <workItem from="1614616104540" duration="54000" />
-      <workItem from="1614878395939" duration="5385000" />
+      <workItem from="1614878395939" duration="5515000" />
+      <workItem from="1616025850047" duration="41000" />
+      <workItem from="1616086185971" duration="1900000" />
     </task>
     <servers />
   </component>
@@ -66,10 +68,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="416" y="150" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680/3840.0.1280.984@0.0.1280.680" timestamp="1613675452192" />
-    <state x="422" y="98" key="FileChooserDialogImpl" timestamp="1613500278094">
+    <state x="422" y="98" key="FileChooserDialogImpl" timestamp="1616025890653">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="422" y="98" key="FileChooserDialogImpl/0.0.1280.680/3840.0.1280.984@0.0.1280.680" timestamp="1613500278094" />
+    <state x="422" y="98" key="FileChooserDialogImpl/0.0.1280.680/3840.0.1280.984@0.0.1280.680" timestamp="1616025890653" />
     <state x="298" y="151" key="run.anything.popup" timestamp="1614277196546">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
