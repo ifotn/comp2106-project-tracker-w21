@@ -12,6 +12,7 @@ var coursesController = require('./controllers/courses')
 // passport libraries for auth
 const passport = require('passport')
 const session = require('express-session')
+const gitHubStrategy = require('passport-github2').Strategy
 
 var app = express();
 
@@ -35,9 +36,39 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+// global vars configuration file
+const config = require('./config/globals')
+
 // link passport to our model that extends passport-local-mongoose
 const User = require('./models/user')
 passport.use(User.createStrategy())
+
+// configure passport-github2 auth w/API keys and our User model
+passport.use(new gitHubStrategy({
+    clientID: config.github.clientId,
+    clientSecret: config.github.clientSecret,
+    callbackURL: config.github.callbackUrl
+},
+    // after successful GitHub login, register or login user
+    async (accessToken, refreshToken, profile, done) => {
+        // does github user already exist in our db?
+        const user = await User.findOne({ oauthId: profile.id })
+
+        if (user) {
+            return done(null, user)
+        }
+        else {
+            const newUser = new User({
+                username: profile.username,
+                oauthId: profile.id,
+                oauthProvider: 'GitHub',
+                created: Date.now()
+            })
+
+            const savedUser = await newUser.save()
+            done(null, savedUser)
+        }
+    }))
 
 // set passport so it read / write user data to / from session object
 passport.serializeUser(User.serializeUser())
@@ -50,9 +81,6 @@ app.use('/courses', coursesController)
 
 // mongodb connection
 const mongoose = require('mongoose')
-
-// global vars configuration file
-const config = require('./config/globals')
 
 mongoose.connect(config.db, {
   useNewUrlParser: true,
